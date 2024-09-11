@@ -1,0 +1,10 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/RegisterPage",
+    "pages/PortraitAlbumPage",
+    "pages/VideoAlbumPage",
+    "pages/VideoPublishPage"
+
+  ]
+}
