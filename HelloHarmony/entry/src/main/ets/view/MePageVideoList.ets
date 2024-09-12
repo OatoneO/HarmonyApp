@@ -35,14 +35,16 @@ export struct MePageVideoList {
               Text(videoInfo.content)
                 .width(190)
                 .fontSize(16)
+                .margin({ left: 6 })
                 .fontColor(Color.White)
+              Row()
+                .flexGrow(1)
               //操作区
-              // 操作区
               Column() {
                 Button('编辑', { type: ButtonType.Normal })
                   .width(60)
                   .height(24)
-                  .borderRadius(1)
+                  .borderRadius(10)
                   .backgroundColor(Color.Blue)
                   .fontSize(14)
                   .onClick(() => {
@@ -58,7 +60,7 @@ export struct MePageVideoList {
                 Button('删除', { type: ButtonType.Normal })
                   .width(60)
                   .height(24)
-                  .borderRadius(1)
+                  .borderRadius(10)
                   .backgroundColor(Color.Red)
                   .fontSize(14)
                   .onClick(() => {

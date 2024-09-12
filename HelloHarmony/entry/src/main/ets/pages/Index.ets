@@ -24,18 +24,18 @@ struct Index {
   // 当前Tabs页面的索引
   @State currentIndex: number = 0;
   // Tabs组件控制器
-  private tabsController:TabsController = new TabsController();
+  private tabsController: TabsController = new TabsController();
   // 用户上传视频的数据源
-  @State userVideoDataSource:UserVideoDataSource =
-  new UserVideoDataSource(Constants.USER_VIDEO_INFO_ARR)
+  @State userVideoDataSource: UserVideoDataSource =
+    new UserVideoDataSource(Constants.USER_VIDEO_INFO_ARR)
   // 点赞数据源
-  @Provide thumbsUpDataSource:ThumbsUpDataSource =
-  new ThumbsUpDataSource(Constants.THUMBS_UP_ARR)
+  @Provide thumbsUpDataSource: ThumbsUpDataSource =
+    new ThumbsUpDataSource(Constants.THUMBS_UP_ARR)
   //收藏数据源
-  @Provide favouriteDataSource:FavouriteDataSource =
+  @Provide favouriteDataSource: FavouriteDataSource =
     new FavouriteDataSource(Constants.FAVOURITE_ARR)
   //关注数据源
-  @Provide followDataSource:FollowDataSource =
+  @Provide followDataSource: FollowDataSource =
     new FollowDataSource(Constants.FOLLOW_ARR)
 
   // 组件即将出现的时候 回调该接口
@@ -87,42 +87,44 @@ struct Index {
   build() {
     //基于Tabs组件实现导航栏
     //并且设置相关的属性将导航栏固定在页面的底部
-    Tabs({ barPosition: BarPosition.End,controller: this.tabsController }) {
+    Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
       // TabContent来设置导航栏标签页内容
       TabContent() {
         MainPage({
           isShowVideoView: this.isShowVideoView,
           videoInfoDataSource: this.videoInfoDataSource
         })
-      }.tabBar(this.TabBuilder('首页',0))
+      }.tabBar(this.TabBuilder('首页', 0))
 
-      TabContent().tabBar(this.TabBuilder('朋友',1))
+      TabContent().tabBar(this.TabBuilder('朋友', 1))
       TabContent() {
 
-      }.tabBar(this.TabBuilder('+',2))
+      }.tabBar(this.TabBuilder('+', 2))
 
-      TabContent().tabBar(this.TabBuilder('消息',3))
+      TabContent().tabBar(this.TabBuilder('消息', 3))
       TabContent() {
         MePage({
-          userVideoDataSource:this.userVideoDataSource
+          userVideoDataSource: this.userVideoDataSource
         })
-      }.tabBar(this.TabBuilder('我的',4))
+      }.tabBar(this.TabBuilder('我的', 4))
 
     }
   }
+
   //自定义导航栏样式
   @Builder
-  TabBuilder(title:string,index:number){
-      Column(){
-        //设置选中和未选中导航栏标签的样式
-        Text(title)
-          .fontColor(this.currentIndex===index?'#FFFFFF':'#E6E6E6')
-      }
-      .width('100%')
+  TabBuilder(title: string, index: number) {
+    Column() {
+      //设置选中和未选中导航栏标签的样式
+      Text(title)
+        .fontColor(this.currentIndex === index ? '#FFFFFF' : '#E6E6E6')
+        .fontSize(this.currentIndex === index ? 20 : 18)
+    }
+    .width('100%')
     .height('100%')
     .justifyContent(FlexAlign.Center)
     .backgroundColor(Color.Black)
-    .onClick(()=>{
+    .onClick(() => {
       // 记录当前tabs页面索引
       this.currentIndex = index;
 

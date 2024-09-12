@@ -9,8 +9,10 @@ export struct MePageFollowList {
 
   build() {
     Column() {
+
       //列表
       List({ space: 1 }) {
+
         // 生成列表项
         LazyForEach(
           this.followDataSource,
@@ -26,22 +28,37 @@ export struct MePageFollowList {
                   .fontSize(25)
                   .fontColor(Color.White)
                 //操作区
-                Column() {
+                Row() {
                   Button('取关', { type: ButtonType.Normal })
-                    .width(60)
-                    .height(24)
-                    .borderRadius(1)
+                    .height(40)
+                    .borderRadius(10)
                     .backgroundColor(Color.Red)
-                    .fontSize(14)
+                    .fontSize(16)
+                    .width(80)
+                    .margin({left: '100%'})
                     .onClick(() => {
                       this.followDataSource.deleteDataById(videoInfo.videoId);
                       this.videoInfoDataSource.changeDataById(videoInfo.videoId, videoInfo);
                     })
                 }
-                .width(60)
+                .flexGrow(1)
+                .justifyContent(FlexAlign.End)
               }
               .width('100%')
-              .height(180)
+              .height(80)
+              .margin({top:20})
+              .padding(10)
+              .justifyContent(FlexAlign.SpaceAround)
+              .borderWidth(2)
+              .borderRadius(8)
+              .borderColor('#F7FFF3')
+              .backdropBlur(10)
+              .shadow({
+                radius: 15,
+                color: '#8e8e8e',
+                offsetX: 0,
+                offsetY: 6
+              })
             }
             .width('100%')
           },
@@ -51,6 +68,7 @@ export struct MePageFollowList {
       .width('100%')
       .listDirection(Axis.Vertical) //排列方向 垂直
       .edgeEffect(EdgeEffect.Spring) // 滑动到边缘无效果
+
     }
     .width('100%')
     .height('100%')

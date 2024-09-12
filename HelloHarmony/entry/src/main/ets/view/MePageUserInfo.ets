@@ -17,7 +17,7 @@ export struct MePageUserInfo{
       Text(AppStorage.Get('UserInfo.username'))
         .fontColor(Color.White)
         .fontSize(22)
-        .margin({left:6})
+        .margin({left:12})
 
     }.width('100%')
     .height(80)

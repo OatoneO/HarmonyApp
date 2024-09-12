@@ -31,4 +31,16 @@ export class VideoInfoDataSource extends BasicDataSource<VideoInfo>{
       }
     }
   }
+  //根据内容查找数据
+  SearchDataByContent(content: string): Boolean {
+    let dataSource: Array<VideoInfo> = this.getDataSource();
+    let regex = new RegExp(content, 'i');
+    //遍历数据源的元素 直到找到指定id的元素位置 进行数据的更新
+    for (let i: number = 0; i < dataSource.length; i++) {
+      if (regex.test(dataSource[i].content)) {
+        return true
+      }
+    }
+    return false
+  }
 }

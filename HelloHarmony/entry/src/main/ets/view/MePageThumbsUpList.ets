@@ -25,13 +25,14 @@ export struct MePageThumbsUpList {
                 Text(videoInfo.content)
                   .width(190)
                   .fontSize(16)
+                  .margin({left:12})
                   .fontColor(Color.White)
                 //操作区
-                Column() {
+                Row() {
                   Button('删除', { type: ButtonType.Normal })
                     .width(60)
                     .height(24)
-                    .borderRadius(1)
+                    .borderRadius(10)
                     .backgroundColor(Color.Red)
                     .fontSize(14)
                     .onClick(() => {
@@ -43,10 +44,13 @@ export struct MePageThumbsUpList {
                       this.videoInfoDataSource.changeDataById(videoInfo.videoId, videoInfo);
                     })
                 }
-                .width(60)
+                .flexGrow(1)
+                .justifyContent(FlexAlign.End)
               }
               .width('100%')
               .height(180)
+              .margin(10)
+              .padding(10)
             }
             .width('100%')
           },

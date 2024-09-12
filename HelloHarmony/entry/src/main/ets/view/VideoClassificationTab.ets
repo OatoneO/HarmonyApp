@@ -24,6 +24,7 @@ export  struct VideoClassificationTab{
           .fontSize(18)
           .fontColor('#FEFEFE')
       }
+      .padding(10)
     }
   }
 }
